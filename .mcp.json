@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "antigravity-resets": {
+      "type": "http",
+      "url": "https://antigravityreset.online/mcp"
+    }
+  }
+}

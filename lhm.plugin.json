@@ -1,0 +1,103 @@
+{
+  "identifier": "wweggplant-antigravity-resets-mcp",
+  "name": "Antigravity Resets",
+  "version": "1.0.0",
+  "author": "wweggplant",
+  "authorUrl": "https://github.com/wweggplant",
+  "category": "developer",
+  "cloudEndpoint": "https://antigravityreset.online/mcp",
+  "description": "Read-only verified Google Antigravity global quota reset tracker, dated X announcement history since May 2026, and official Free/AI Pro/AI Ultra limit rules. Hosted remote MCP, no API key.",
+  "homepage": "https://antigravityreset.online",
+  "prompts": [],
+  "resources": [],
+  "tools": [
+    {
+      "name": "get_latest_reset",
+      "title": "Latest Antigravity global reset",
+      "description": "Return the latest verified Google Antigravity global quota reset announced on X, elapsed days since that reset, any active official watch banner, and historical cadence statistics. Read-only community record; does not predict future resets.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "locale": {
+            "type": "string",
+            "enum": ["en", "zh", "ja", "ko"],
+            "description": "Language for human-readable summaries. Default en."
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_reset_timeline",
+      "title": "Verified Antigravity reset history",
+      "description": "List verified Google Antigravity global quota resets since May 2026, newest first, with primary X source URLs and interval gaps. Optionally filter by model pool, trigger reason, date range, and limit.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Case-insensitive filter on affected model pools (e.g. Gemini, Argon, Claude, All models)."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Case-insensitive filter on reason tags (e.g. incident, product release, maintenance)."
+          },
+          "from": {
+            "type": "string",
+            "description": "Earliest UTC date inclusive, YYYY-MM-DD."
+          },
+          "to": {
+            "type": "string",
+            "description": "Latest UTC date inclusive, YYYY-MM-DD."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "description": "Maximum number of reset events to return (1-50, default 10)."
+          },
+          "locale": {
+            "type": "string",
+            "enum": ["en", "zh", "ja", "ko"],
+            "description": "Language for human-readable summaries. Default en."
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_quota_rules",
+      "title": "Antigravity quota rules & reset fixes",
+      "description": "Return verified Google Antigravity quota refresh baselines (Free, Google AI Pro, Google AI Ultra), 5-hour vs 7-day weekly cap mechanics, Gemini CLI shared pool facts, and stuck-quota troubleshooting steps.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "locale": {
+            "type": "string",
+            "enum": ["en", "zh", "ja", "ko"],
+            "description": "Language for returned rules and troubleshooting copy. Default en."
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "online.antigravityreset/antigravity-resets",
+  "title": "Antigravity Resets",
+  "description": "Read-only Google Antigravity global quota reset tracker, X announcement history, and limit rules.",
+  "version": "1.0.0",
+  "websiteUrl": "https://antigravityreset.online",
+  "repository": {
+    "url": "https://github.com/wweggplant/antigravity-resets-mcp",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://antigravityreset.online/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://antigravityreset.online/mcp"
+    }
+  ]
+}
